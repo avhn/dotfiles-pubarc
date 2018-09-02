@@ -2,12 +2,18 @@
 export ZSH="/Users/mert/.oh-my-zsh"
 
 # Set environment
+# encoding
 export LANG=en_US.UTF-8
+# ssh
+export SSH_KEY_PATH="~/.ssh/rsa_id"
+# theme
 ZSH_THEME="robbyrussell"
 
 plugins=(
-  git, 
-  osx 
+    git
+    osx 
+    python 
+    perl
 )
 
 # ALIASES
@@ -16,10 +22,12 @@ alias create="virtualenv venv"
 alias activate="source venv/bin/activate"
 
 # Spotify aliases
+# > command + indicator
 alias spause="spotify pause"
-# > splay + indicator
 alias splay="spotify play"
 alias sstop="spotify stop"
+alias svol="spotify vol"
+
 
 # After inserting zsh plugins
 # Initialize zsh
@@ -75,7 +83,4 @@ HIST_STAMPS="dd.mm.yyyy"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
