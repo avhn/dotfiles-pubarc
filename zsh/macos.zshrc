@@ -1,11 +1,11 @@
 # Use clone of zsh
-export ZSH="/Users/mert/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # Set environment
 # encoding
 export LANG=en_US.UTF-8
 # ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH=$HOME/.ssh/config
 # theme
 ZSH_THEME="robbyrussell"
 
