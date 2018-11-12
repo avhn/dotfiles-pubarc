@@ -1,6 +1,5 @@
-Color scheme intalling
-OSX: $HOME/.vim/colors
-Windows: $HOME/vimfiles/colors
+Color scheme installing
+  OSX: $HOME/.vim/colors
+  Windows: $HOME/vimfiles/colors
 
-
-Add .vim to $HOME
+You can just run, setup.sh
