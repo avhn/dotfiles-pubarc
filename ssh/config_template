@@ -1,0 +1,7 @@
+# Define profiles as below
+# Save as ~/.ssh/config
+
+Host {server}
+PubkeyAuthentication yes
+IdentityFile {path to private key}
+
