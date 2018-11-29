@@ -4,14 +4,12 @@
 ;= rem In batch mode, jump to the end of the file
 ;= goto:eof
 ;= Add aliases below here
+create=python3 -m virtualenv venv
 activate=venv\Scripts\activate
-create=python -m virtualenv venv
 e.=explorer .
-gl=git log --oneline --all --graph --decorate  $*
+gl=git log --oneline --all
 ls=ls --show-control-chars -F --color $*
-pwd=cd
 clear=cls
-history=cat "%CMDER_ROOT%\config\.history"
 unalias=alias /d $1
 vi=vim $*
 cmderr=cd /d "%CMDER_ROOT%"
