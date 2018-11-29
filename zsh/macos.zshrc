@@ -2,16 +2,12 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Set environment
-# encoding
 export LANG=en_US.UTF-8
-# ssh
 export SSH_KEY_PATH=$HOME/.ssh/config
-# theme
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="robbyrussell"
 
-#thefuck
+# Enable plugins
 eval $(thefuck --alias)
-
 plugins=(
     git
     osx 
@@ -19,28 +15,17 @@ plugins=(
     perl
 )
 
-# ALIASES
-# Python3.7 virtualenv aliases
-alias create="virtualenv venv"
+# python3.* virtualenv aliases
+alias create="virtualenv --python=python3 venv"
 alias activate="source venv/bin/activate"
 
-# Spotify aliases
-# > command + indicator
-alias spause="spotify pause"
-alias splay="spotify play"
-alias sstop="spotify stop"
-alias svol="spotify vol"
-
-
-# After inserting zsh plugins
-# Initialize zsh
+# Inserted zsh plugins, initialize
 source $ZSH/oh-my-zsh.sh
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# Set time-stamp format
 HIST_STAMPS="dd.mm.yyyy"
 
+# --------------- OTHER OPTIONS BELOW --------------- #
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 

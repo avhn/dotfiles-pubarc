@@ -1,34 +1,30 @@
 # Use clone of zsh
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # Set environment
-# encoding
 export LANG=en_US.UTF-8
-# ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
-# theme
+export SSH_KEY_PATH=$HOME/.ssh/config
 ZSH_THEME="robbyrussell"
 
+# Enable plugins
+eval $(thefuck --alias)
 plugins=(
     git
     python 
     perl
 )
 
-# ALIASES
-# Python virtualenv aliases
-alias create="virtualenv venv"
+# python3.* virtualenv aliases
+alias create="virtualenv --python=python3 venv"
 alias activate="source venv/bin/activate"
 
-# After inserting zsh plugins
-# Initialize zsh
+# Inserted zsh plugins, initialize
 source $ZSH/oh-my-zsh.sh
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# Set time-stamp format
 HIST_STAMPS="dd.mm.yyyy"
 
+# --------------- OTHER OPTIONS BELOW --------------- #
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
