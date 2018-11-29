@@ -15,3 +15,6 @@ else
 fi
 cd $(dirname $0)
 cat $rcfile > ~/.zshrc
+
+# change shell for user
+chsh -s $(which zsh)
