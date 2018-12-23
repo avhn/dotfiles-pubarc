@@ -10,9 +10,9 @@ elif [[ "$file" == "unknown" ]]; then
 	exit
 fi
 mkdir $file
-cp -rf ./colors $file/colors
 
 cd $(dirname $0)
 cat .vimrc > $HOME/.vimrc
+cp -rf ./colors $file/colors
 
 echo "Success!"
