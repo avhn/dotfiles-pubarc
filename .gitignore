@@ -1,19 +1,15 @@
 # Default .gitignore #
-
 .DS_Store
 *.swp
 *~
 .idea
-#*
+*#*
 
-## Python
-env
+# Python
 venv
-
 build
 dist
 *.egg-info
-
 __pycache__
 *.pyc
 *.pyo
