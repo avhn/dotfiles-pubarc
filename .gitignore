@@ -1,16 +1,32 @@
-# Default .gitignore #
-.DS_Store
+### Default .gitignore
+
+## Editing
+# Emacs
+*#*
+# Vim
 *.swp
 *~
+# JetBrains
 .idea
-*#*
 
-# Python
-venv
+## Python
+# Virtual envs
+*venv
+# Builds
 build
 dist
 *.egg-info
+# Bytecodes
 __pycache__
 *.pyc
 *.pyo
+
+## Java
+*.class
+
+## Other
+# Windows
+*.exe
+# MacOS
+.DS_Store
 
