@@ -13,6 +13,8 @@ mkdir $file
 
 cd $(dirname $0)
 cat .vimrc > $HOME/.vimrc
-cp -rf ./colors $file/colors
+git clone https://github.com/rafi/awesome-vim-colorschemes colors
+cp -rf ./colors/colors $file/colors
+rm -rf ./colors
 
 echo "Success!"
