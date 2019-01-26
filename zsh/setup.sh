@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# -*- encoding: utf-8 -*-
+# You can use this script for debian based linux distros(WSL included) and macOS.
+# Requirements are git, and brew if you're using macOS.
 
 git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh
 
@@ -9,12 +12,15 @@ if [[ $choice == "y" ]]; then
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
+    brew install zsh
     rcfile="macos.zshrc"
 else
+    sudo apt-get install zsh
     rcfile="debian.zshrc"
 fi
 cd $(dirname $0)
 cat $rcfile > ~/.zshrc
 
-# change shell for user
+# change shell for "user"
+# do not use sudo
 chsh -s $(which zsh)
