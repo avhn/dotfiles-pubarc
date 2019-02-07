@@ -7,7 +7,6 @@ export SSH_KEY_PATH=$HOME/.ssh/config
 ZSH_THEME="robbyrussell"
 
 # Enable plugins
-eval $(thefuck --alias)
 plugins=(
     git
     python 

@@ -5,22 +5,28 @@
 
 git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh
 
-echo -e "Install 'powerlevel9k' theme with it? (y/n): "
-read choice
-if [[ $choice == "y" ]]; then
-    git clone https://github.com/bhilburn/powerlevel9k ~/.oh-my-zsh/custom/themes/powerlevel9k
-fi
-
 if [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS
     brew install zsh
     rcfile="macos.zshrc"
 else
-    sudo apt-get install zsh
-    rcfile="debian.zshrc"
+    # linux
+    echo "Pacman or aptitute? (p/a): "
+    read choice
+    if [[ $choice == "p" ]]; then
+        sudo pacman -Syu zsh
+    else
+        sudo apt-get install zsh -y
+    fi
+    
+    rcfile="linux.zshrc"
 fi
+
+
 cd $(dirname $0)
 cat $rcfile > ~/.zshrc
 
 # change shell for "user"
 # do not use sudo
 chsh -s $(which zsh)
+
