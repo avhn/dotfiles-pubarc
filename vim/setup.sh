@@ -11,10 +11,14 @@ elif [[ "$file" == "unknown" ]]; then
 fi
 mkdir $file
 
+echo -ne " - Copying .vimrc\n"
 cd $(dirname $0)
 cat .vimrc > $HOME/.vimrc
+
+
+echo -ne " - Cloning themes\n"
 git clone https://github.com/rafi/awesome-vim-colorschemes colors
 cp -rf ./colors/colors $file/colors
 rm -rf ./colors
 
-echo "Success!"
+echo " - Success!"
