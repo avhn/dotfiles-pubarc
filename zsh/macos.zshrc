@@ -21,10 +21,6 @@ plugins=(
 alias create="virtualenv --python=python3 venv"
 alias activate="source venv/bin/activate"
 
-# sudo editors
-alias emacs="sudo emacs"
-alias vim="sudo vim"
-
 # git
 alias rebaseroot="git rebase -i --root" #$branch_name
 alias rebase="git rebase -i"
