@@ -1,32 +1,29 @@
-### Default .gitignore
+# Default .gitignore of Anaxilaus
 
-## Editing
-# Emacs
-*#*
-# Vim
+# emacs
+\#*\#
+
+# vim
 *.swp
 *~
-# JetBrains
+
+# jetbrains
 .idea
 
-## Python
-# Virtual envs
+# virtual envs
 *venv
-# Builds
+
+# builds
 build
 dist
 *.egg-info
-# Bytecodes
+
+# bytecode
 __pycache__
 *.pyc
 *.pyo
-
-## Java
 *.class
 
-## Other
-# Windows
-*.exe
-# MacOS
+# macOS
 .DS_Store
 
