@@ -17,6 +17,7 @@
 
   (define-key global-map [remap list-buffers] 'buffer-menu-other-window)
   (tool-bar-mode -1)
+  (menu-bar-mode -1)
   (scroll-bar-mode -1)
   (when window-system (set-frame-size (selected-frame) 91 65))
   (load-theme 'misterioso t)
