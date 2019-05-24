@@ -28,5 +28,5 @@ cat $rcfile > ~/.zshrc
 
 # change shell for "user"
 # do not use sudo
-chsh -s $(which zsh)
+chsh -s /bin/zsh
 
