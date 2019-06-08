@@ -11,7 +11,7 @@ ZSH_THEME="robbyrussell"
 
 # Enable plugins
 plugins=(
-    git
+    gitfast
     python 
     perl
 )
