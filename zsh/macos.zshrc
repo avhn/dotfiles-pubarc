@@ -4,9 +4,13 @@ export ZSH=$HOME/.oh-my-zsh
 # Set environment
 export LANG=en_US.UTF-8
 export SSH_KEY_PATH=$HOME/.ssh/config
-export EDITOR=$(which emacs)
-export GIT_EDITOR=$(which vim)
+export EDITOR="$(which emacs) -nw"
+export GIT_EDITOR=$EDITOR
 ZSH_THEME="robbyrussell"
+
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
 
 # Enable plugins
 plugins=(
@@ -14,22 +18,23 @@ plugins=(
     osx 
     python 
     perl
+    jenv
 )
 
 ## start aliases ##
-# python3.* virtualenv
-alias create="virtualenv --python=python3 venv"
-alias activate="source venv/bin/activate"
 
-# git
-alias rebaseroot="git rebase -i --root" #$branch_name
-alias rebase="git rebase -i"
-alias add="git add"
+# python3.* virtualenv
+alias create="python3 -m virtualenv --python=python3 venv"
+alias activate="source ./venv/bin/activate"
+
+# editors
+alias emacs="emacs -nw"
 
 # overwrite guards
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
+
 ## end aliases ##
 
 # Inserted zsh plugins, initialize
@@ -37,6 +42,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Set time-stamp format
 HIST_STAMPS="dd.mm.yyyy"
+
 
 # --------------- OTHER OPTIONS BELOW --------------- #
 # If you come from bash you might have to change your $PATH.

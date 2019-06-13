@@ -4,36 +4,41 @@ export ZSH=$HOME/.oh-my-zsh
 # Set environment
 export LANG=en_US.UTF-8
 export SSH_KEY_PATH=$HOME/.ssh/config
-export EDITOR=$(which emacs)
-export GIT_EDITOR=$(which vim)
+export EDITOR="$(which emacs) -nw"
+export GIT_EDITOR=$EDITOR
 ZSH_THEME="robbyrussell"
 
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
 
-# Enable plugins
+# Enable pluginso
 plugins=(
     gitfast
     python 
     perl
+    jenv
 )
 
 ## start aliases ##
+
 # python3.* virtualenv
-alias create="virtualenv --python=python3 venv"
-alias activate="source venv/bin/activate"
+alias create="python3 -m virtualenv --python=python3 venv"
 
-# sudo editors
-alias emacs="sudo emacs"
-alias vim="sudo vim"
+function activate_func {
+    if [[ "$OS_TYPE" == "msys" ]]; then
+	   ./venv/Scripts/activate.bat
+	else
+		source ./venv/bin/activate
+	fi
+}
+alias activate=activate_func
 
-# git
-alias rebaseroot="git rebase -i --root" #$branch_name
-alias rebase="git rebase -i"
-alias add="git add"
-
-# overwrite guards
+# confirm overwrite
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
+
 ## end aliases ##
 
 # Inserted zsh plugins, initialize

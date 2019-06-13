@@ -1,24 +1,29 @@
-export EDITOR=$(which emacs)
-export GIT_EDITOR=$(which vim)
+export EDITOR="$(which emacs) -nw"
+export GIT_EDITOR=$EDITOR
+export LANG=en_us.UTF-8
+export SSH_KEY_PATH="$HOME/.ssh/config"
 
-## sudo editors
-alias emacs='sudo emacs'
-alias vim='sudo vim'
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
 
-## virtualenv
-alias create='virtualenv --python=python3' #$dirname
-alias activate='source /venv/bin/activate'
+## python virtualenv
+alias create='python3 -m virtualenv --python=python3 venv'
 
-## git
-alias rebase='git rebase -i --root' #$branch_name
-alias pull='git pull'
-alias gstat='git status'
-alias gcommit='git commit'
-alias glog='git log --oneline'
-alias gdiff='git diff'
+activate_func() {
+  if [[ "$OSTYPE" == "msys" ]]; then
+    ./venv/Scripts/activate.bat
+  else
+    source ./venv/bin/activate
+  fi
+}
+alias activate=activate_func
 
-## default args
+## confirm overwrite
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+
+# editors
+alias emacs='emacs -nw'
 
