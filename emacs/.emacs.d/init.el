@@ -10,17 +10,17 @@
 
   (set-default-font "Source Code Pro")
   
-  ;; if macOS-gui, initialize exec-path-from-shell
+  ;;  if macOS-gui, initialize exec-path-from-shell
   (if (eq system-type 'darwin)
-    (when (memq window-system '(mac ns x))
-  	    (exec-path-from-shell-initialize)))
+      (when (memq window-system '(mac ns x))
+        (setq exec-path-from-shell-arguments nil)
+        (exec-path-from-shell-initialize)))
 
   (define-key global-map [remap list-buffers] 'buffer-menu-other-window)
   (tool-bar-mode -1)
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
-  (when window-system (set-frame-size (selected-frame) 91 65))
-  (load-theme 'misterioso t)
+  (load-theme (if window-system 'deeper-blue 'manoj-dark) t)
   ))
 
 
@@ -30,9 +30,6 @@
 
   ;; use virtualenv for elpy packages
   (setq elpy-rpc-python-command "~/.emacs.d/py3venv/bin/python3.7")
-			      
-  (when window-system (set-frame-size (selected-frame) 162 65))
-  (split-window-right)
   (elpy-enable)
   ))
 
@@ -42,7 +39,6 @@
 		c-basic-offset 2
 		indent-tabs-mode nil)
   ))
-
 
 (add-hook 'latex-mode-hook (lambda()
   (setq indent-tabs-mode t
