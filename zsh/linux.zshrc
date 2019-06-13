@@ -26,7 +26,7 @@ plugins=(
 alias create="python3 -m virtualenv --python=python3 venv"
 
 function activate_func {
-    if [[ "$OS_TYPE" == "msys" ]]; then
+    if [[ "$OSTYPE" == "msys" ]]; then
 	   ./venv/Scripts/activate.bat
 	else
 		source ./venv/bin/activate
