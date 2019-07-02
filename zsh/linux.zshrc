@@ -1,18 +1,4 @@
-# Use clone of zsh
-export ZSH=$HOME/.oh-my-zsh
-
-# Set environment
-export LANG=en_US.UTF-8
-export SSH_KEY_PATH=$HOME/.ssh/config
-export EDITOR="$(which emacs) -nw"
-export GIT_EDITOR=$EDITOR
-ZSH_THEME="robbyrussell"
-
-# jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
-# Enable pluginso
+# enable plugins
 plugins=(
     gitfast
     python 
@@ -41,34 +27,19 @@ alias mv="mv -i"
 
 ## end aliases ##
 
-# Inserted zsh plugins, initialize
-source $ZSH/oh-my-zsh.sh
-
 # Set time-stamp format
 HIST_STAMPS="dd.mm.yyyy"
 
+# Inserted zsh plugins, initialize
+source $ZSH/oh-my-zsh.sh
+
 # --------------- OTHER OPTIONS BELOW --------------- #
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -83,13 +54,6 @@ HIST_STAMPS="dd.mm.yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
