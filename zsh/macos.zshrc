@@ -1,17 +1,3 @@
-# Use clone of zsh
-export ZSH=$HOME/.oh-my-zsh
-
-# Set environment
-export LANG=en_US.UTF-8
-export SSH_KEY_PATH=$HOME/.ssh/config
-export EDITOR="$(which emacs) -nw"
-export GIT_EDITOR=$EDITOR
-ZSH_THEME="robbyrussell"
-
-# jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
 # Enable plugins
 plugins=(
     gitfast
@@ -37,12 +23,11 @@ alias mv="mv -i"
 
 ## end aliases ##
 
-# Inserted zsh plugins, initialize
-source $ZSH/oh-my-zsh.sh
-
 # Set time-stamp format
 HIST_STAMPS="dd.mm.yyyy"
 
+# Inserted zsh plugins, initialize
+source $ZSH/oh-my-zsh.sh
 
 # --------------- OTHER OPTIONS BELOW --------------- #
 # If you come from bash you might have to change your $PATH.
