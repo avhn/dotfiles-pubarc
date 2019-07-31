@@ -15,12 +15,12 @@ set ignorecase
 set showmatch
 
 if has("gui_running")
-  colorscheme deus
   set lines=70
   set go-=T go-=m go-=r
+  colorscheme deus
 else
-  colorscheme hybrid
   set lines=35
+  colorscheme hybrid
 endif
 
 
