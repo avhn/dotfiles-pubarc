@@ -10,8 +10,8 @@ plugins=(
 ## start aliases ##
 
 # python3.* virtualenv
-alias create="python3 -m virtualenv --python=python3 venv"
-alias activate="source ./venv/bin/activate"
+alias create="python3 -m virtualenv --python=python3 .venv"
+alias activate="source ./.venv/bin/activate"
 
 # editors
 alias emacs="emacs -nw"

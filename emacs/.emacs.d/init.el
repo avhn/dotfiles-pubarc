@@ -29,7 +29,7 @@
 		python-indent 4)
 
   ;; use virtualenv for elpy packages
-  (setq elpy-rpc-python-command "~/.emacs.d/py3venv/bin/python3.7")
+  (setq elpy-rpc-python-command "~/.emacs.d/.py3venv/bin/python3.7")
   (elpy-enable)
   ))
 

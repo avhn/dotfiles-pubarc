@@ -9,13 +9,13 @@ plugins=(
 ## start aliases ##
 
 # python3.* virtualenv
-alias create="python3 -m virtualenv --python=python3 venv"
+alias create="python3 -m virtualenv --python=python3 .venv"
 
 function activate_func {
     if [[ "$OSTYPE" == "msys" ]]; then
-	   ./venv/Scripts/activate.bat
+	   ./.venv/Scripts/activate.bat
 	else
-		source ./venv/bin/activate
+		source ./.venv/bin/activate
 	fi
 }
 alias activate=activate_func

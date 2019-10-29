@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-py3venv_dir=$HOME/.emacs.d/py3venv
+py3venv_dir=$HOME/.emacs.d/.py3venv
 
 # copy files
 cp -rf $(dirname $0)/.emacs.d $HOME
