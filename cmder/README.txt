@@ -1,1 +1,0 @@
-Add to $cmder/config
