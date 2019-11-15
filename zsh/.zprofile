@@ -8,9 +8,9 @@ export EDITOR="$(which emacs) -nw"
 export GIT_EDITOR=$EDITOR
 ZSH_THEME="robbyrussell"
 
+# brew
+export PATH="$HOME/.brew/bin:$HOME/.brew/sbin:$PATH"
+
 # jenv
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
-
-# brew
-export PATH="$HOME/.brew/bin:$HOME/.brew/sbin:$PATH"
