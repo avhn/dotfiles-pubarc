@@ -7,6 +7,8 @@ Files are explanied briefly below. Contributions and suggestions/issues are alwa
 - Copies config files to `$HOME/.emacs`
 - Installs and activates [elpy](https://github.com/jorgenschaefer/elpy), a Python plugin from MELPA: - Creates a virtual environment for Python to `$HOME/.emacs/py3venv` - Installs elpy's required packages with pip - If you're using macOS, installs [another plugin from MELPA](https://github.com/purcell/exec-path-from-shell) to access shell and activate virtual environment in GUI mode
 
+Note: Configuration sets a specific font, currently [Source Code Pro](https://github.com/adobe-fonts/source-code-pro), configuration won't load for GUI client unless your OS has the font. You may download the font or change the configuration.
+
 ## Zsh
 
 [Setup script](vim/setup.sh) does the following:
