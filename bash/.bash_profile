@@ -9,3 +9,6 @@ export PATH="$HOME/.brew/bin:$HOME/.brew/sbin:$PATH"
 # jenv
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+
+# golang
+export GOPATH="$HOME/go"
