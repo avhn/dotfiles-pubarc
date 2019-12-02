@@ -11,6 +11,12 @@ Files are explanied briefly below. Contributions and suggestions/issues are alwa
 
 **Note:** You can't use this on Windows.
 
+
+## Bash
+
+[Setup script](bash/setup.sh) copies .bash_profile and .bashrc to `$HOME`.
+
+
 ## Vim
 
 [Setup script](vim/setup.sh) does the following:
@@ -18,17 +24,15 @@ Files are explanied briefly below. Contributions and suggestions/issues are alwa
 - Copies config files according to your OS
 - Installs colorschemes from [github/awesome-vim-colorschemes](https://github.com/rafi/awesome-vim-colorschemes)
 
+
+## SSH
+
+Contains template of [config file](ssh/config_template) with explanations.
+
+
 ## PyPI
 
 Contains templates:
 
 - [.pypirc](pypi/template.pypirc)
 - [Example script](pypi/upload.sh) that uploads to test index.
-
-## SSH
-
-Contains template of [config file](ssh/config_template) with explanations.
-
-## Bash
-
-[Setup script](bash/setup.sh) copies .bash_profile and .bashrc to `$HOME`.
