@@ -17,8 +17,7 @@ cat .vimrc > $HOME/.vimrc
 
 
 echo -ne " - Cloning themes\n"
-git clone https://github.com/rafi/awesome-vim-colorschemes colors
-cp -rf ./colors/colors $file/colors
-rm -rf ./colors
+git submodule update --init colorschemes
+cp -rf ./colorschemes/colors $file/colors
 
 echo " - Success!"
