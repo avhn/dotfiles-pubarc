@@ -2,7 +2,7 @@ Files are explanied briefly below. Contributions and suggestions/issues are alwa
 
 ## Zsh
 
-[Setup script](vim/setup.sh) does the following:
+[Setup script](zsh/setup.sh) does the following:
 
 - Installs zsh to path
 - Clones [zsh repository](https://github.com/robbyrussell/oh-my-zsh) to `$HOME/.oh-my-zsh`
@@ -27,7 +27,7 @@ Files are explanied briefly below. Contributions and suggestions/issues are alwa
 
 ## SSH
 
-Contains template of [config file](ssh/config_template) with explanations.
+Contains template of [config file](ssh/template.config) with explanations.
 
 
 ## PyPI
