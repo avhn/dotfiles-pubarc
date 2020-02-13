@@ -1,3 +1,6 @@
 [submodule "emacs.d"]
 	path = emacs.d
-	url = git@github.com:anaxilaus/emacs.d
+	url = https://github.com/anaxilaus/emacs.d
+[submodule "vim/colorschemes"]
+	path = vim/colorschemes
+	url = https://github.com/rafi/awesome-vim-colorschemes
