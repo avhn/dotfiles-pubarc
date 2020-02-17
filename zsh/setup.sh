@@ -25,7 +25,7 @@ fi
 
 cd $(dirname $0)
 cat $rcfile > ~/.zshrc
-cat .zprofile > ~/.zprofile
+cat .zprofile > ~/.zprofile
 
 # change shell for "user"
 # do not use sudo
