@@ -11,6 +11,12 @@ Files are explanied briefly below. Contributions and suggestions/issues are alwa
 
 **Note:** You can't use this on Windows.
 
+## Emacs
+[Emacs submodule](https://github.com/Anaxilaus/emacs.d) supports multiple programming languages out of the box. Setup script does the following:
+
+- Copies the files to `$HOME/.emacs.d` when needed
+- Installs binaries (For golang and python3, be sure to install to path beforehand.)
+- Installs packages from MELPA
 
 ## Bash
 
