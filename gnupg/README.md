@@ -21,3 +21,14 @@ Add startup to shell profile:
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 gpgconf --launch gpg-agent
 ```
+
+## Signing commits
+
+Set git config:
+
+```bash
+$ gpg --list-secret-keys --keyid-format LONG
+$ git config --global user.signingkey $signingkey
+$ git config --global commit.gpgsign true
+$ git config --global gpg.program $(which gpg)
+```
