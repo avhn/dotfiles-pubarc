@@ -1,8 +1,8 @@
-Consider this file as in `$HOME/.gnupg`
+Consider this folder as in `$HOME/.gnupg`
 
 ## Setting up GPG for SSH
 
-Add authentication subkey and put keygrip in `[$HOME/.gnupg/sshcontrol](./sshcontrol)`:
+Add authentication subkey and put keygrip in `($HOME/.gnupg/sshcontrol)[./sshcontrol]`:
 
 ```bash
 $ gpg -K --with-keygrip
