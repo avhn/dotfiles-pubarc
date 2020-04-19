@@ -4,6 +4,6 @@ Files are explained briefly within their corresponding folder.
   * [ZSH](./zsh)
   * [BASH](./bash)
   * [VIM](./vim)
-  * [EMACS](./emacs.d)
+  * [EMACS](https://github.com/anaxilaus/emacs.d)
   * [PyPI](./pypi)
 
