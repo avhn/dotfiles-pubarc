@@ -1,6 +1,8 @@
 Consider this folder as in `$HOME/.gnupg`
 
-## Setting up GPG for SSH
+Use `version >= <b>gpg2.1</b>`.
+
+## Setting up for SSH
 
 Add authentication subkey and put keygrip in `$HOME/.gnupg/sshcontrol`:
 
@@ -15,11 +17,12 @@ Enable ssh support:
 $ echo "enable-ssh-support" > $HOME/.gnupg/gpg-agent.conf
 ```
 
-Add startup to shell profile:
+Append to startup shell profile:
 
 ```bash
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 gpgconf --launch gpg-agent
+gpg-connect-agent updatestartuptty /bye
 ```
 
 ## Signing commits

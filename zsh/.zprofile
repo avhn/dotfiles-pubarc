@@ -7,11 +7,6 @@ export EDITOR="$(which emacs) -nw"
 export GIT_EDITOR=$EDITOR
 ZSH_THEME="robbyrussell"
 
-# GPG and SSH
-export SSH_KEY_PATH="$HOME/.ssh/config"
-export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-gpgconf --launch gpg-agent
-
 # brew
 export PATH="$HOME/.brew/bin:$HOME/.brew/sbin:$PATH"
 
@@ -23,6 +18,9 @@ eval "$(jenv init -)"
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 
-
-
+# GPG and SSH
+export SSH_KEY_PATH="$HOME/.ssh/config"
+export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+gpgconf --launch gpg-agent
+gpg-connect-agent updatestartuptty /bye
 
