@@ -1,6 +1,6 @@
 Consider this folder as in `$HOME/.gnupg`
 
-Use `version >= <b>gpg2.1</b>`.
+Use <span style="background-color:#C0C0C0;">version >= <b>gpg2.1</b></span>.
 
 ## Setting up for SSH
 
