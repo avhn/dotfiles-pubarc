@@ -16,5 +16,6 @@ export PATH="$GOPATH/bin:$PATH"
 # GPG and SSH
 export SSH_KEY_PATH="$HOME/.ssh/config"
 export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+export GPG_TTY=$(tty)
 gpgconf --launch gpg-agent
 gpg-connect-agent updatestartuptty /bye
