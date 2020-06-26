@@ -10,11 +10,11 @@ fi
 mkdir $file
 
 cd $(dirname $0)
-echo -ne " - Linking .vimrc\n"
-ln -sfn $(pwd)/.vimrc $HOME/.vimrc
+echo -ne "Linking .vimrc\n"
+ln -sfn $(pwd)/vimrc $HOME/.vimrc
 
-echo -ne " - Cloning and linking themes\n"
+echo -ne "Cloning and linking themes\n"
 git submodule update --init colorschemes
 ln -sfn $(pwd)/colorschemes/colors $file/colors
 
-echo " - Success!"
+echo "Success!"
