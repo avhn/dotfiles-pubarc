@@ -9,7 +9,7 @@ mkdir -p $HOME/bin/homebrew && curl -L https://github.com/Homebrew/brew/tarball/
 brew install gpg emacs python3 go npm openjdk
 if [[ ! $(sudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk) ]]; then
     echo "Symlink jdk as root with the following command later: "
-    echo "\tsu \$adminName && sudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk"
+    echo "\tsudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk"
 fi
 zsh ./emacs.d/setup.sh
 mkdir -p $HOME/Applications
