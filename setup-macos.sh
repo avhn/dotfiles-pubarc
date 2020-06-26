@@ -9,9 +9,6 @@ mkdir -p $HOME/bin/homebrew && curl -L https://github.com/Homebrew/brew/tarball/
 brew install gpg emacs python3 go npm openjdk
 sudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 zsh ./emacs.d/setup.sh
-mkdir -p $HOME/.gnupg
-cat ./gpg/gpg-agent.conf > $HOME/.gnupg/gpg-agent.conf
-cat ./gpg/sshcontrol > $HOME/.gnupg/sshcontrol
 mkdir -p $HOME/Applications
 brew cask install emacs --appdir=$HOME/Applications
 # symlink icloud to home folder
