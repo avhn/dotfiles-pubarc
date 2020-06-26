@@ -7,11 +7,12 @@ source ./zsh/.zshrc
 # homebrew, emacs, go, java, python3, npm, gpg etc.
 mkdir -p $HOME/bin/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $HOME/bin/homebrew
 brew install gpg emacs python3 go npm openjdk
-sudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+if [[ ! $(sudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk) ]]; then
+    echo "Symlink jdk as root with the following command later: "
+    echo "\tsu \$adminName && sudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk"
+fi
 zsh ./emacs.d/setup.sh
 mkdir -p $HOME/Applications
 brew cask install emacs --appdir=$HOME/Applications
 # symlink icloud to home folder
 ln -sfn $HOME/Library/Mobile\ Documents/com~apple~CloudDocs $HOME/Cloud
-# set up gpg vars for git
-
