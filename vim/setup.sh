@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 file="unknown"
 if [[ "$OSTYPE" == "darwin"* ]] || [[ "$OSTYPE" == "linux-gnu" ]]; then
     file="$HOME/.vim"
@@ -11,13 +9,12 @@ elif [[ "$file" == "unknown" ]]; then
 fi
 mkdir $file
 
-echo -ne " - Copying .vimrc\n"
 cd $(dirname $0)
-cat .vimrc > $HOME/.vimrc
+echo -ne " - Linking .vimrc\n"
+ln -sfn $(pwd)/.vimrc $HOME/.vimrc
 
-
-echo -ne " - Cloning themes\n"
+echo -ne " - Cloning and linking themes\n"
 git submodule update --init colorschemes
-cp -rf ./colorschemes/colors $file/colors
+ln -sfn $(pwd)/colorschemes/colors $file/colors
 
 echo " - Success!"

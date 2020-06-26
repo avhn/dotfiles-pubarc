@@ -1,9 +1,9 @@
 Files are explained briefly within their corresponding folder.
 
-  * [GPG](./gnupg)
+  * [GPG](./gpg)
   * [ZSH](./zsh)
-  * [BASH](./bash)
   * [VIM](./vim)
   * [EMACS](https://github.com/anaxilaus/emacs.d)
   * [PyPI](./pypi)
+  * [SSH](./ssh)
 

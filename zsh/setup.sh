@@ -1,33 +1,8 @@
-#!/usr/bin/env bash
-# -*- encoding: utf-8 -*-
-# You can use this script for debian based linux distros(WSL included) and macOS.
-# Requirements are git, and brew if you're using macOS.
-
-git clone https://github.com/robbyrussell/oh-my-zsh ~/.oh-my-zsh
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    # macOS
-    brew install zsh
-    rcfile="macos.zshrc"
-else
-    # linux
-    echo "Pacman or aptitute? (p/a): "
-    read choice
-    if [[ $choice == "p" ]]; then
-        sudo pacman -Syu zsh
-    else
-        sudo apt-get install zsh -y
-    fi
-    
-    rcfile="linux.zshrc"
-fi
-
+git clone https://github.com/robbyrussell/oh-my-zsh $HOME/bin/oh-my-zsh
 
 cd $(dirname $0)
-cat $rcfile > ~/.zshrc
-cat .zprofile > ~/.zprofile
+ln -sfn $(pwd)/.zshrc $HOME/.zshrc
+ln -sfn $(pwd)/.zprofile  $HOME/.zprofile
 
-# change shell for "user"
-# do not use sudo
+# change shell for user, do not use sudo
 chsh -s /bin/zsh
-
