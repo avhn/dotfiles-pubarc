@@ -1,5 +1,3 @@
-## PyPI
-
 Contains templates:
 
 - [.pypirc](./template.pypirc)
