@@ -1,6 +1,7 @@
 ## user isolated macos setup, uses $HOME/bin $HOME/Applications
 ## afterwards, isolate home folder with chown -R and chmod -R go-rwx
 ## install xcode seperately to get default devtools first
+cd $(dirname $0)
 # zsh
 zsh ./zsh/setup.sh
 source ./zsh/zprofile

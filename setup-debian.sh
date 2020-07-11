@@ -2,6 +2,7 @@
 ## on home folder afterwards
 ## WARNING: config files are intended for macos and this script is not tested
 ## extensively, if you decide to use this be prepared to fix some things
+cd $(dirname $0)
 sudo apt install git
 # zsh
 zsh ./zsh/setup.sh
