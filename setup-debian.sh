@@ -3,7 +3,7 @@
 ## WARNING: config files are intended for macos and this script is not tested
 ## extensively, if you decide to use this be prepared to fix some things
 cd $(dirname $0)
-sudo apt install git
+sudo apt install build-essential curl file git
 # zsh
 zsh ./zsh/setup.sh
 source ./zsh/zprofile
