@@ -15,11 +15,9 @@
   (set-default-font preferred-font))
 
 ;; set ui
-(if (display-graphic-p)
-    (progn
+(when (display-graphic-p)
       (tool-bar-mode -1)
       (menu-bar-mode -1)
-      (scroll-bar-mode -1)
-      (load-theme 'deeper-blue t))
-  ;; terminal
-  (load-theme 'manoj-dark t))
+      (scroll-bar-mode -1))
+;; both terminal and ui theme
+(load-theme 'manoj-dark t)
