@@ -5,6 +5,10 @@ ZSH_THEME="robbyrussell"
 # homebrew
 export PATH="$HOME/bin/homebrew/bin:$HOME/bin/homebrew/sbin:$PATH"
 
+# ruby
+export GEM_PATH="$HOME/bin/ruby"
+export PATH="$GEM_PATH/bin:$PATH"
+
 # golang
 export GOPATH="$HOME/bin/go"
 export PATH="$GOPATH/bin:$PATH"
