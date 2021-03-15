@@ -57,6 +57,7 @@
   :hook (go-mode . lsp-deferred))
 
 ;;; python
+;; if auto-install-server doesn't work, use: M-x lsp-python-ms-update-server
 (use-package lsp-python-ms
   :ensure t
   :init (setq lsp-python-ms-auto-install-server t)
