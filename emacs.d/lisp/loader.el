@@ -12,9 +12,7 @@
   (exec-path-from-shell-initialize))
 
 (use-package lsp-mode
-  :ensure t
-  :commands (lsp lsp-deferred)
-  :hook (go-mode . lsp-deferred))
+  :ensure t)
 
 ;; provides fancier overlays.
 (use-package lsp-ui
@@ -31,9 +29,11 @@
 
 ;; company-lsp integrates company mode completion with lsp-mode.
 ;; completion-at-point also works out of the box but doesn't support snippets.
+;; company-lsp delisted from melpa, load from path
 (use-package company-lsp
-  :ensure t
+  :load-path "lisp/company-lsp"
   :commands company-lsp)
+(require 'company-lsp)
 
 ;; provides snippet support.
 (use-package yasnippet
@@ -42,7 +42,6 @@
   :hook (go-mode . yas-minor-mode))
 
 ;; modes
-
 ;; set up before-save hooks to format buffer and add/delete imports.
 ;; make sure you don't have other gofmt/goimports hooks enabled.
 (defun lsp-go-install-save-hooks ()
@@ -51,14 +50,14 @@
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
 (use-package go-mode
-  :ensure t)
+  :ensure t
+  :commands (lsp lsp-deferred)
+  :hook (go-mode . lsp-deferred))
 
 (use-package lsp-python-ms
   :ensure t
-  :hook python-mode
-  :config
-  (require 'lsp-python-ms)
-  (lsp))
+  :init (setq lsp-python-ms-auto-install-server t)
+  :hook (python-mode . lsp))
 
 (use-package markdown-mode
   :ensure t
