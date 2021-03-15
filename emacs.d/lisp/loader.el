@@ -32,7 +32,7 @@
 ;; company-lsp delisted from melpa, load from path
 (use-package company-lsp
   :after (lsp-mode company s dash)
-  :load-path "lisp/company-lsp"
+  :load-path "vendor/company-lsp"
   :commands company-lsp)
 (require 'company-lsp)
 
