@@ -31,9 +31,19 @@
 ;; completion-at-point also works out of the box but doesn't support snippets.
 ;; company-lsp delisted from melpa, load from path
 (use-package company-lsp
+  :after (lsp-mode company s dash)
   :load-path "lisp/company-lsp"
   :commands company-lsp)
 (require 'company-lsp)
+
+;; modes
+;; set up before-save hooks to format buffer and add/delete imports.
+;; make sure you don't have other gofmt/goimports hooks enabled.
+;;; go
+(defun lsp-go-install-save-hooks ()
+  (add-hook 'before-save-hook #'lsp-format-buffer t t)
+  (add-hook 'before-save-hook #'lsp-organize-imports t t))
+(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
 ;; provides snippet support.
 (use-package yasnippet
@@ -41,19 +51,12 @@
   :commands yas-minor-mode
   :hook (go-mode . yas-minor-mode))
 
-;; modes
-;; set up before-save hooks to format buffer and add/delete imports.
-;; make sure you don't have other gofmt/goimports hooks enabled.
-(defun lsp-go-install-save-hooks ()
-  (add-hook 'before-save-hook #'lsp-format-buffer t t)
-  (add-hook 'before-save-hook #'lsp-organize-imports t t))
-(add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
-
 (use-package go-mode
   :ensure t
   :commands (lsp lsp-deferred)
   :hook (go-mode . lsp-deferred))
 
+;;; python
 (use-package lsp-python-ms
   :ensure t
   :init (setq lsp-python-ms-auto-install-server t)
@@ -71,11 +74,9 @@
   (setq fill-column 90))
 
 ;;; bindings
-
 (define-key global-map [remap list-buffers] 'buffer-menu-other-window)
 
 ;;; hooks
-
 (add-hook 'emacs-lisp-mode-hook
           (lambda()
             (company-mode)))
@@ -95,8 +96,6 @@
                   LaTeX-item-indent 2)))
 
 ;; custom file
-
 (setq custom-file "~/.emacs.d/lisp/custom.el")
 (load custom-file)
 (load "defaults")
-
