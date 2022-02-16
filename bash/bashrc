@@ -1,0 +1,20 @@
+export GOPATH="$HOME/go"
+export HOMEBREW="$HOME/brew"
+export PIP3_LOCAL="$HOME/.local/bin"
+export PATH="$PATH:$HOMEBREW/bin:$GOPATH/bin:$PIP3_LOCAL"
+
+## start alias block ##
+# python3 virtualenv
+alias create="python3 -m virtualenv --python=python3 venv"
+alias activate="source ./venv/bin/activate"
+
+# editor
+alias emacs="emacs -nw"
+
+# overwrite guard
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
+## end alias block ##
+
+
