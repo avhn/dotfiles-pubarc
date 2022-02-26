@@ -23,18 +23,9 @@
 (use-package company
   :ensure t
   :config
-  ;; Optionally enable completion-as-you-type behavior.
+;  ;; Optionally enable completion-as-you-type behavior.
   (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 1))
-
-;; company-lsp integrates company mode completion with lsp-mode.
-;; completion-at-point also works out of the box but doesn't support snippets.
-;; company-lsp delisted from melpa, load from path
-(use-package company-lsp
-  :after (lsp-mode company s dash)
-  :load-path "vendor/company-lsp"
-  :commands company-lsp)
-(require 'company-lsp)
 
 ;; modes
 ;; set up before-save hooks to format buffer and add/delete imports.
@@ -60,8 +51,9 @@
 ;; if auto-install-server doesn't work, use: M-x lsp-python-ms-update-server
 (use-package lsp-python-ms
   :ensure t
-  :init (setq lsp-python-ms-auto-install-server t)
-  :hook (python-mode . lsp))
+  :hook (python-mode . (lambda ()
+                         (require 'lsp-python-ms)
+                         (lsp))))
 
 (use-package markdown-mode
   :ensure t

@@ -11,7 +11,7 @@ if ! type go > /dev/null && ! $(brew install golang); then
     echo "Can't set up golang!"
     exit
 fi
-if ! go install golang.org/x/tools/gopls@latest; then
+if ! go get golang.org/x/tools/gopls; then
     echo "fatal"
     exit
 fi
