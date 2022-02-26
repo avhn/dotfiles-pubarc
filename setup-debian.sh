@@ -13,6 +13,8 @@ sudo apt install curl
 mkdir -p $HOME/brew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $HOME/brew
 # set up oh-my-bash
 git clone https://github.com/ohmybash/oh-my-bash $HOME/.oh-my-bash
-
+# python
+sudo apt install python3-pip3
+pip3 install virtualenv
+# git
 brew install diff-so-fancy
-
