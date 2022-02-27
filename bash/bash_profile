@@ -1,5 +1,5 @@
 export GOPATH="$HOME/go"
 export BREWPATH="$HOME/brew"
 export PIP3_LOCAL="$HOME/.local/bin"
-export PATH="$PATH:$HOMEBREW/bin:$GOPATH/bin:$PIP3_LOCAL"
+export PATH="$PATH:$BREWPATH/bin:$GOPATH/bin:$PIP3_LOCAL"
 export PYTHONPATH="$(which python3)"
