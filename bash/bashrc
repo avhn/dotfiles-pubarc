@@ -28,6 +28,7 @@ alias emacs="emacs -nw"
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
+alias ofd="xdg-open ."
 
 plugins=(
   git
