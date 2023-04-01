@@ -2,7 +2,6 @@
 #
 ## pass legit username as first arg.
 ## user isolated setup which uses $HOME/bin,
-## use chown -R and chmod -R go-rwx on home folder afterwards
 ## use sudo.
 
 function usage() {

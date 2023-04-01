@@ -1,9 +1,9 @@
 #!/bin/bash
 #
 ## pass legit username as first arg.
-## user isolated macos setup, uses $HOME/bin $HOME/Applications
-## afterwards, isolate home folder with chown -R and chmod -R go-rwx
 ## install xcode seperately to get default devtools first
+## user isolated macos setup
+## uses $HOME/Applications instead of global /Applications folder.
 
 function usage() {
     # TODO: Write usage.
@@ -32,7 +32,7 @@ sudo $DIR/bash/setup.sh
 source $DIR/bash/bash_profile
 source $DIR/bash/bashrc
 # homebrew, gpg, go, npm etc.
-mkdir -p $HOME/bin/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $HOME/brew
+mkdir -p $HOME/brew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $HOME/brew
 brew install gpg go npm
 # emacs
 mkdir -p $HOME/Applications
@@ -43,4 +43,3 @@ ln -sfn $HOME/Library/Mobile\ Documents/com~apple~CloudDocs $HOME/Cloud
 # isolate home folder
 sudo chown -R $USERNAME /home/$USERNAME
 sudo chmod -R go-rwx /home/$USERNAME
-
