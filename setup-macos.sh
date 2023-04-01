@@ -1,11 +1,36 @@
+#!/bin/bash
+#
+## pass legit username as first arg.
 ## user isolated macos setup, uses $HOME/bin $HOME/Applications
 ## afterwards, isolate home folder with chown -R and chmod -R go-rwx
 ## install xcode seperately to get default devtools first
-cd $(dirname $0)
-# zsh
-zsh ./bash/setup.sh
-source ./bash/bash_profile
-source ./bash/bashrc
+
+function usage() {
+    # TODO: Write usage.
+    exit 1
+}
+
+# Make sure to run as root
+if [[ ${UID} != 0 ]]; then
+    # not root
+    echo 'Please run as root.' >&2
+    usage
+fi
+
+USERNAME=''
+# Check username
+if [ "${#}" != 1 ] | [ "$(id ${1})" == 0 ] | [ ! -d "/home/${1}" ]; then
+    # there should be just one user specified
+    # and user should have a valid home folder.
+    echo 'Invalid user.'
+    usage
+fi
+USERNAME=${1}
+
+DIR="$(dirname $0)"
+sudo $DIR/bash/setup.sh
+source $DIR/bash/bash_profile
+source $DIR/bash/bashrc
 # homebrew, gpg, go, npm etc.
 mkdir -p $HOME/bin/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $HOME/brew
 brew install gpg go npm
@@ -13,15 +38,9 @@ brew install gpg go npm
 mkdir -p $HOME/Applications
 brew cask install emacs --appdir=$HOME/Applications
 bash ./emacs.d/setup.sh
-# symlink icloud to home folder
+# symlink iCloud to $HOME/Cloud
 ln -sfn $HOME/Library/Mobile\ Documents/com~apple~CloudDocs $HOME/Cloud
-# openjdk
-#echo -n "Install openjdk? y/n: "
-#read install_openjdk
-#if [[ "$install_openjdk" == "y" ]]; then
-#  brew install openjdk
-#  if [[ ! $(sudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk) ]]; then
-#    echo "Symlink jdk as root with the following command later: "
-#    echo "\tsudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk"
-#  fi
-#fi
+# isolate home folder
+sudo chown -R $USERNAME /home/$USERNAME
+sudo chmod -R go-rwx /home/$USERNAME
+

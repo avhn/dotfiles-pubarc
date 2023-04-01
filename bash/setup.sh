@@ -1,5 +1,8 @@
+#!/bin/bash
+# set up oh-my-bash
 git clone https://github.com/ohmybash/oh-my-bash $HOME/.oh-my-bash
-cd $(dirname $0)
-ln -sfn $(pwd)/bashrc $HOME/.bashrc
-ln -sfn $(pwd)/bash_profile  $HOME/.bash_profile
+# create symlinks.
+DIR=$(dirname $0)
+ln -sfn $DIR/bashrc $HOME/.bashrc
+ln -sfn ${DIR}/bash_profile  $HOME/.bash_profile
 
