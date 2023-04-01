@@ -33,7 +33,7 @@ sudo apt update
 sudo apt upgrade -y
 # set up bash
 sudo apt install git
-$DIR/bash/setup.sh
+bash $DIR/bash/setup.sh
 source $DIR/bash/bash_profile
 source $DIR/bash/bashrc
 # install drivers
@@ -48,6 +48,8 @@ sudo apt install python3-pip3
 pip3 install virtualenv
 # git
 brew install diff-so-fancy
+# emacs
+bash $DIR/emacs.d/setup.sh
 # isolate
 sudo chown -R $USERNAME /home/$USERNAME
 sudo chmod -R go-rwx /home/$USERNAME

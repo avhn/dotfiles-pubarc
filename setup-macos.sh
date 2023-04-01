@@ -37,7 +37,7 @@ brew install gpg go npm
 # emacs
 mkdir -p $HOME/Applications
 brew cask install emacs --appdir=$HOME/Applications
-bash ./emacs.d/setup.sh
+bash $DIR/emacs.d/setup.sh
 # symlink iCloud to $HOME/Cloud
 ln -sfn $HOME/Library/Mobile\ Documents/com~apple~CloudDocs $HOME/Cloud
 # isolate home folder
