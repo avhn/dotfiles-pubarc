@@ -1,20 +1,37 @@
+#!/bin/bash
+# assumes no error and accepts username as first arg for unix systems.
+USERNAME=${1}
+if [[ "${#}" != 1 ]]; then
+  echo 'No user specified.' >& 2
+  exit 1
+fi
+
 file="unknown"
 if [[ "$OSTYPE" == "darwin"* ]] || [[ "$OSTYPE" == "linux-gnu" ]]; then
-    file="$HOME/.vim"
+  file="/home/${USERNAME}/.vim"
+  echo 'Linking .vimrc'
+  ln -sfn $(dirname $0)/vimrc /home/${USERNAME}/.vimrc
 elif [[ "$OSTYPE" == "msys"* ]]; then
-    file="$HOME/vimfiles"
+  file="$HOME/vimfiles"
+  echo 'Linking .vimrc'  
+  ln -sfn $(dirname $0)/vimrc /home/${USERNAME}/.vimrc
 elif [[ "$file" == "unknown" ]]; then
-	echo "OS not detected. Aborting!"
-	exit
+  echo "OS not detected. Aborting!" >&2
+  exit 1
+else
+  echo 'fatal' >&2
+  exit 1
 fi
-mkdir $file
 
-cd $(dirname $0)
-echo -ne "Linking .vimrc\n"
-ln -sfn $(pwd)/vimrc $HOME/.vimrc
+if [[ ! -e $file ]]; then
+  mkdir $file
+elif [[ ! -d $file ]]; then
+  echo "Non-dir file at ${file}, aborting." >&2
+  exit 1
+fi
 
-echo -ne "Cloning and linking themes\n"
+echo 'Cloning and linking themes'
 git submodule update --init colorschemes
-ln -sfn $(pwd)/colorschemes/colors $file/colors
+ln -sfn $(dirname $0)/colorschemes/colors $file/colors
 
-echo "Success!"
+echo "Success"

@@ -33,7 +33,7 @@ sudo apt update
 sudo apt upgrade -y
 # set up bash
 sudo apt install git
-bash $DIR/bash/setup.sh
+bash $DIR/bash/setup.sh $USERNAME
 source $DIR/bash/bash_profile
 source $DIR/bash/bashrc
 # install drivers
@@ -42,14 +42,16 @@ sudo apt install linux-headers-amd64 linux-image-amd64 nvidia-driver
 sudo apt install fonts-noto fonts-firacode
 # set up linuxbrew/homebrew
 sudo apt install curl
-mkdir -p $HOME/brew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $HOME/brew
+mkdir -p /home/$USERNAME/brew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C /home/$USERNAME/brew
 # python
 sudo apt install python3-pip3
 pip3 install virtualenv
 # git
 brew install diff-so-fancy
 # emacs
-bash $DIR/emacs.d/setup.sh
+bash $DIR/emacs.d/setup.sh $USERNAME
+# vim
+bash $DIR/vim/setup.sh $USERNAME
 # isolate
 sudo chown -R $USERNAME /home/$USERNAME
 sudo chmod -R go-rwx /home/$USERNAME

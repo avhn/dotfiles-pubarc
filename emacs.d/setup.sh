@@ -1,9 +1,17 @@
 #!/bin/bash
+# assumes no error and accepts $USERNAME as the first arg.
+
+USERNAME=${1}
+if [[ "${#}" != 1 ]]; then
+  echo 'No user specified.' >& 2
+  exit 1
+fi
 
 EMACS_DIR=$(dirname $0)
-if [[ ! -f $HOME/.emacs.d && ! -d $HOME/.emacs.d ]]; then
+# Symlink
+if [[ ! -f /home/${USERNAME}/.emacs.d && ! -d /home/${USERNAME}/.emacs.d ]]; then
   echo "Symlinking"
-  ln -sfn $EMACS_DIR $HOME/.emacs.d
+  ln -sfn $EMACS_DIR /home/${USERNAME}/.emacs.d
 else
   echo "Skipping symlink ($HOME/.emacs.d occupied)" >&2
   exit 1

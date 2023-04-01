@@ -28,18 +28,20 @@ fi
 USERNAME=${1}
 
 DIR="$(dirname $0)"
-sudo $DIR/bash/setup.sh
+sudo $DIR/bash/setup.sh $USERNAME
 source $DIR/bash/bash_profile
 source $DIR/bash/bashrc
 # homebrew, gpg, go, npm etc.
-mkdir -p $HOME/brew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $HOME/brew
+mkdir -p /home/${USERNAME}/brew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C /home/${USERNAME}/brew
 brew install gpg go npm
 # emacs
-mkdir -p $HOME/Applications
-brew cask install emacs --appdir=$HOME/Applications
-bash $DIR/emacs.d/setup.sh
+mkdir -p /home/${USERNAME}/Applications
+brew cask install emacs --appdir=/home/${USERNAME}/Applications
+bash $DIR/emacs.d/setup.sh $USERNAME
+# vim
+bash $DIR/vim/setup.sh $USERNAME
 # symlink iCloud to $HOME/Cloud
-ln -sfn $HOME/Library/Mobile\ Documents/com~apple~CloudDocs $HOME/Cloud
+ln -sfn /home/${USERNAME}/Library/Mobile\ Documents/com~apple~CloudDocs /home/${USERNAME}/Cloud
 # isolate home folder
 sudo chown -R $USERNAME /home/$USERNAME
 sudo chmod -R go-rwx /home/$USERNAME
