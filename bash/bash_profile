@@ -1,7 +1,7 @@
 export BREWPATH="$HOME/brew"
 export GOPATH="$HOME/go"
 export GOROOT="$BREWPATH/Cellar/go"
-export GOROOT="$GOROOT/$(ls $GOROOT | head -1)"
+export GOROOT="$GOROOT/$(ls $GOROOT | head -1)/libexec"
 export PIP3_LOCAL="$HOME/.local/bin"
 export PATH="$BREWPATH/bin:$PATH:$GOPATH/bin:$PIP3_LOCAL"
 export PYTHONPATH="$(which python3)"
