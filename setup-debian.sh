@@ -46,6 +46,8 @@ mkdir -p /home/$USERNAME/brew && curl -L https://github.com/Homebrew/brew/tarbal
 # python
 sudo apt install python3-pip3
 pip3 install virtualenv
+# /usr/bin/python isn't available, link to python3
+sudo ln -s /usr/bin/python3 /usr/bin/python
 # git
 brew install diff-so-fancy
 # emacs
