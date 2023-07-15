@@ -49,10 +49,15 @@
 
 ;;; python
 ;; if auto-install-server doesn't work, use: M-x lsp-python-ms-update-server
-(use-package lsp-python-ms
+;(use-package lsp-python-ms
+;  :ensure t
+;  :hook (python-mode . (lambda ()
+;                         (require 'lsp-python-ms)
+;                         (lsp))))
+(use-package lsp-pyright
   :ensure t
   :hook (python-mode . (lambda ()
-                         (require 'lsp-python-ms)
+                         (require 'lsp-pyright)
                          (lsp))))
 
 (use-package markdown-mode
