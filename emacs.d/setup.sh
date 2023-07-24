@@ -1,28 +1,33 @@
 #!/bin/bash
+# for debian and macos
 # assumes no error and accepts $USERNAME as the first arg.
 
-USERNAME=${1}
-if [[ "${#}" != 1 ]]; then
-  echo 'No user specified.' >& 2
-  exit 1
+HOME_DIR=$HOME
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    USERNAME=${1}
+    if [[ "${#}" != 1 ]]; then
+        echo 'No user specified.' >& 2
+        exit 1
+    fi
+    HOME_DIR=/home/$USERNAME
 fi
 
 EMACS_DIR=$(dirname $0)
 # Symlink
-if [[ ! -f /home/${USERNAME}/.emacs.d && ! -d /home/${USERNAME}/.emacs.d ]]; then
+if [[ ! -f $HOME_DIR/.emacs.d && ! -d $HOME_DIR/.emacs.d ]]; then
   echo "Symlinking"
-  ln -sfn $EMACS_DIR /home/${USERNAME}/.emacs.d
+  ln -sfn $EMACS_DIR $HOME_DIR/.emacs.d
 else
-  echo "Skipping symlink ($HOME/.emacs.d occupied)" >&2
+  echo "Skipping symlink ($HOME_DIR/.emacs.d occupied)" >&2
   exit 1
 fi
 
 # install golang.org's language server
-if ! type go > /dev/null && ! $(brew install golang); then
+if ! type go > /dev/null && ! $(brew install go); then
   echo "Can't set up golang!" >&2
   exit 1
-elif ! go get golang.org/x/tools/gopls; then
-  echo 'fatal' >&2
+elif ! go install golang.org/x/tools/gopls; then
+  echo "Can't install golang language server, gopls!" >&2
   exit 1
 fi
 

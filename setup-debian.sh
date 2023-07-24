@@ -44,10 +44,12 @@ sudo apt install fonts-noto fonts-firacode
 sudo apt install curl
 mkdir -p /home/$USERNAME/brew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C /home/$USERNAME/brew
 # python
-sudo apt install python3-pip3
-pip3 install virtualenv
-# /usr/bin/python isn't available, link to python3
-sudo ln -s /usr/bin/python3 /usr/bin/python
+sudo apt install python3-pip
+## -- not necessary anymore with debian 12
+#pip3 install virtualenv
+## /usr/bin/python isn't available, link to python3
+## -- not necessary anymore with debian 12
+#sudo ln -s /usr/bin/python3 /usr/bin/python
 # git
 brew install diff-so-fancy
 # emacs

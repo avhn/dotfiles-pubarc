@@ -1,14 +1,18 @@
 #!/bin/bash
-# assumes no error and accepts username as first arg for unix systems.
-USERNAME=${1}
-if [[ "${#}" != 1 ]]; then
-  echo 'No user specified.' >& 2
-  exit 1
-fi
+# assumes no error and accepts username as first arg for linux.
+# works with linux-macos-windows.
 
 file="unknown"
 if [[ "$OSTYPE" == "darwin"* ]] || [[ "$OSTYPE" == "linux-gnu" ]]; then
-  file="/home/${USERNAME}/.vim"
+  file=$HOME/.vim
+  if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    USERNAME=${1}
+    if [[ "${#}" != 1 ]]; then
+        echo 'No user specified.' >& 2
+        exit 1
+    fi
+    file="/home/${USERNAME}/.vim"
+  fi
   echo 'Linking .vimrc'
   ln -sfn $(dirname $0)/vimrc /home/${USERNAME}/.vimrc
 elif [[ "$OSTYPE" == "msys"* ]]; then
