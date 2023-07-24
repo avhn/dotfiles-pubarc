@@ -39,7 +39,7 @@ source $DIR/bash/bashrc
 # install drivers
 sudo apt install linux-headers-amd64 linux-image-amd64 nvidia-driver
 # set up fonts
-sudo apt install fonts-noto fonts-firacode
+sudo apt install fonts-noto fonts-firacode fonts-powerline
 # set up linuxbrew/homebrew
 sudo apt install curl
 mkdir -p /home/$USERNAME/brew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C /home/$USERNAME/brew
