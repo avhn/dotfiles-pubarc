@@ -2,6 +2,7 @@
 .cache
 
 ### Emacs ###
+eln-cache
 *~
 \#*\#
 /.emacs.desktop
