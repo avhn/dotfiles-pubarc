@@ -29,6 +29,9 @@ alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
 alias ofd="xdg-open ."
+if [[ "$OSTYPE" == "darwin"* ]]; then
+   alias ofd = "open ."
+fi
 
 plugins=(
   git
