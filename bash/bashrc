@@ -50,4 +50,14 @@ export LANG=en_US.UTF-8
 export EDITOR="$(which emacs) -nw"
 export GIT_EDITOR=$EDITOR
 
+# utility functions
+update_vscode () {
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' -O /tmp/code_latest_amd64.deb
+        sudo dpkg -i /tmp/code_latest_amd64.deb
+    else
+        echo "Not linux"
+    fi
+}
+
 source "$OSH"/oh-my-bash.sh
