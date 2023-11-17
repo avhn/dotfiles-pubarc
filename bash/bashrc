@@ -50,50 +50,64 @@ export LANG=en_US.UTF-8
 export EDITOR="$(which emacs) -nw"
 export GIT_EDITOR=$EDITOR
 
-# utility functions
-update-vscode () {
-    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' -O /tmp/code_latest_amd64.deb
-        if [[ $? -ne 0 ]]; then
-           echo "Network error!" >&2
-           return 1
-        fi
-        sudo dpkg -i /tmp/code_latest_amd64.deb
-        return 0
-    else
+### utility functions
+
+# Usage: install-deb-package DOWNLOAD_URL PROGRAM_NAME(optional)
+install-deb-package () {
+    # check arguments
+    if [[ -z $1 ]]; then
+       echo "No download_url argument passed" >&2
+       return 1
+    fi
+    download_url="$1"
+    program_name="$2"
+    if [[ -z $2 ]]; then
+        program_name="$(date +%N)"
+    fi
+    # check debian
+    if [[ "$OSTYPE" != "linux-gnu"* ]]; then
         echo "Not linux" >&2
         return 1
     fi
+    # download and complete
+    download_path="/tmp/${program_name}.deb"
+    wget "${download_url}" -O "${download_path}"
+    if [[ $? -ne 0 ]]; then
+       echo "Network error!" >&2
+       return 1
+    fi
+    echo "Using sudo for dpkg..."
+    sudo dpkg -i "${download_path}"
+    if [[ $? -ne 0 ]]; then
+        echo "dpkg install error" >&2
+        return 1
+    fi
+    echo "Removing ${download_path}"
+    rm -f "${download_path}"
+    if [[ $? -ne 0 ]]; then
+        echo 'Error while removing cached file' >&2
+        return 1
+    fi
+    echo "Successfully installed."
+    return 0
+}
+
+update-vscode () {
+    url='https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64'
+    install-deb-package $url 'vscode'
+    return $?
 }
 
 update-discord () {
-    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        wget 'https://discord.com/api/download/stable?platform=linux&format=deb' -O /tmp/discord_latest_amd64.deb
-        if [[ $? -ne 0 ]]; then
-           echo "Network error!" >&2
-           return 1
-        fi
-        sudo dpkg -i /tmp/discord_latest_amd64.deb
-        return 0
-    else
-        echo "Not linux" >&2
-        return 1
-    fi       
+    url='https://discord.com/api/download/stable?platform=linux&format=deb'
+    install-deb-package $url 'discord'
+    return $? 
 }
 
 update-chrome () {
-    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" -O /tmp/chrome_latest_amd64.deb
-        if [[ $? -ne 0 ]]; then
-            echo "Network error!" >&2
-            return 1
-        fi
-        sudo dpkg -i /tmp/chrome_latest_amd64.deb
-        return 0
-    else
-        echo "Not linux" >&2
-        return 1
-    fi
+    url='https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+    install-deb-package $url 'chrome'
+    return $?
 }    
 
 source "$OSH"/oh-my-bash.sh
