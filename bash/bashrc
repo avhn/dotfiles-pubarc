@@ -54,6 +54,11 @@ export GIT_EDITOR=$EDITOR
 
 ### utility functions
 
+# Fix agent refused operation error for GPG with MacOS
+fix-gpg-darwin () {
+    echo UPDATESTARTUPTTY | gpg-connect-agent
+}
+
 # Usage: install-deb-package DOWNLOAD_URL PROGRAM_NAME(optional)
 install-deb-package () {
     # check arguments
