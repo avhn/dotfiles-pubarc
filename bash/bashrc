@@ -56,6 +56,10 @@ export GIT_EDITOR=$EDITOR
 
 # Fix agent refused operation error for GPG with MacOS
 fix-gpg-darwin () {
+    if [[ "$OSTYPE" != "darwin"* ]]; then
+        echo "Not macOS." >&2
+        exit 1
+    fi
     echo UPDATESTARTUPTTY | gpg-connect-agent
 }
 
