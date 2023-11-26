@@ -1,5 +1,5 @@
 #!/bin/bash
-#!/bin/bash
+#
 # set up oh-my-bash
 # symlink .bashrc & .bash_profile
 
@@ -14,9 +14,18 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     fi
     DIR=/home/$USERNAME
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    # MacOS
-    # assume superuser
-    DIR=$HOME
+    # MacOS, ran by the sudoer user who utilizes
+    # assume brew already installed
+    which brew > /dev/null
+    if [[ $? -eq 0 ]]; then
+        BREW_PATH=$HOME/brew
+        yes | brew update
+        yes | brew install bash
+        sudo chsh -s $BREW_PATH/bin/bash $(whoami)
+        if [[ $? -ne 0 ]]; then
+            echo "Could not change default shell to bash installed in ${$BREW_PATH/bin/bash}.\nProbably not superuser.\n" >&2
+        fi
+   else echo "brew not found in path." >&2; fi
 else
     echo "Unidentified OS." >& 2
     exit 1

@@ -28,9 +28,11 @@ alias emacs="emacs -nw"
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
-alias ofd="xdg-open ."
 if [[ "$OSTYPE" == "darwin"* ]]; then
-   alias ofd = "open ."
+    alias ofd="open ."
+else
+    # linux
+    alias ofd="xdg-open ."
 fi
 
 plugins=(
@@ -110,4 +112,4 @@ update-chrome () {
     return $?
 }    
 
-source "$OSH"/oh-my-bash.sh
+source $OSH/oh-my-bash.sh
