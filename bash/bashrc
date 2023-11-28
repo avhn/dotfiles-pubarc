@@ -119,6 +119,14 @@ update-chrome () {
     url='https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
     install-deb-package $url 'chrome'
     return $?
-}    
+}
+
+# install steam installer with dpkg
+# assumes steam updates itself
+install-steam-installer () {
+    url='https://cdn.cloudflare.steamstatic.com/client/installer/steam.deb'
+    install-deb-package $url 'steam'
+    return $?
+}
 
 source $OSH/oh-my-bash.sh
