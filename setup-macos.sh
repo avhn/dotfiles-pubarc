@@ -33,7 +33,9 @@ source $DIR/bash/bash_profile
 source $DIR/bash/bashrc
 # homebrew, gpg, go, npm etc.
 mkdir -p /home/${USERNAME}/brew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C /home/${USERNAME}/brew
-brew install gpg go npm
+brew install gpg go npm python3
+# powerline font for oh-my-bash agnoster theme
+pip3 install --user powerline-status -y
 # emacs
 mkdir -p /home/${USERNAME}/Applications
 brew cask install emacs --appdir=/home/${USERNAME}/Applications
