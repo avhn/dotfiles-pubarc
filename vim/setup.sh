@@ -3,6 +3,7 @@
 # works with linux-macos-windows.
 
 file="unknown"
+folder=$(dirname $(readlink -f $0))
 if [[ "$OSTYPE" == "darwin"* ]] || [[ "$OSTYPE" == "linux-gnu" ]]; then
   file=$HOME/.vim
   if [[ "$OSTYPE" == "linux-gnu"* ]]; then
@@ -14,7 +15,7 @@ if [[ "$OSTYPE" == "darwin"* ]] || [[ "$OSTYPE" == "linux-gnu" ]]; then
     file="/home/${USERNAME}/.vim"
   fi
   echo 'Linking .vimrc'
-  ln -sfn $(dirname $0)/vimrc /home/${USERNAME}/.vimrc
+  ln -sfn ${folder}/vimrc /home/${USERNAME}/.vimrc
 elif [[ "$OSTYPE" == "msys"* ]]; then
   file="$HOME/vimfiles"
   echo 'Linking .vimrc'  
@@ -36,6 +37,6 @@ fi
 
 echo 'Cloning and linking themes'
 git submodule update --init colorschemes
-ln -sfn $(dirname $0)/colorschemes/colors $file/colors
+ln -sfn ${folder}/colorschemes/colors $file/colors
 
 echo "Success"

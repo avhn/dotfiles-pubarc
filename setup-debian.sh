@@ -51,7 +51,7 @@ sudo apt install python3-pip
 ## -- not necessary anymore with debian 12
 #sudo ln -s /usr/bin/python3 /usr/bin/python
 # git
-brew install diff-so-fancy
+brew install diff-so-fancy node
 # emacs
 bash $DIR/emacs.d/setup.sh $USERNAME
 # vim

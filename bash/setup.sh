@@ -33,7 +33,7 @@ fi
 
 git clone https://github.com/ohmybash/oh-my-bash $DIR/.oh-my-bash
 # create symlinks.
-DIR_SCRIPT=$(dirname $0)
+DIR_SCRIPT=$(dirname $(readlink -f $0))
 
 ln -sfn $DIR_SCRIPT/bashrc $DIR/.bashrc
 ln -sfn $DIR_SCRIPT/bash_profile  $DIR/.bash_profile

@@ -12,7 +12,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     HOME_DIR=/home/$USERNAME
 fi
 
-EMACS_DIR=$(dirname $0)
+EMACS_DIR=$(dirname $(readlink -f $0))
 # Symlink
 if [[ ! -f $HOME_DIR/.emacs.d && ! -d $HOME_DIR/.emacs.d ]]; then
   echo "Symlinking"
@@ -26,7 +26,7 @@ fi
 if ! type go > /dev/null && ! $(brew install go); then
   echo "Can't set up golang!" >&2
   exit 1
-elif ! go install golang.org/x/tools/gopls; then
+elif ! go install golang.org/x/tools/gopls@latest; then
   echo "Can't install golang language server, gopls!" >&2
   exit 1
 fi
